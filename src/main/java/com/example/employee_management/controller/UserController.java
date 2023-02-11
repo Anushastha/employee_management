@@ -5,6 +5,9 @@ import com.example.employee_management.pojo.UserPojo;
 import com.example.employee_management.services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -33,12 +36,25 @@ public class UserController {
         return "Hello_page";
     }
 
+    @GetMapping("/index")
+    public String getMainPage() {
+        return "index";
+    }
 
     @GetMapping("/create")
     public String getCreatePage() {
         return "user/create";
     }
 
+    //???
+    @GetMapping("/login")
+    public String getLogin(Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "user/login";
+        }
+        return ("redirect:/user/user_list");
+    }
 
     @GetMapping("/register")
     public String getRegister(Model model) {
@@ -55,12 +71,9 @@ public class UserController {
             redirectAttributes.addFlashAttribute("requestError", requestError);
             return "redirect:/register";
         }
-
         userService.save(userPojo);
-        redirectAttributes.addFlashAttribute("successMsg", "User saved successfully");
-
-
-        return "redirect:/user/list";
+        redirectAttributes.addFlashAttribute("successMsg", "User registered successfully");
+        return "redirect:/login";
     }
 
     @GetMapping("/edit/{id}")

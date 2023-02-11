@@ -1,7 +1,7 @@
 package com.example.employee_management.controller;
 
 import com.example.employee_management.Entity.Employee;
-import com.example.employee_management.services.StudentService;
+import com.example.employee_management.services.EmployeeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class EmployeeController {
 
-    private StudentService studentService;
+    private EmployeeService employeeService;
 
-    public EmployeeController(StudentService studentService) {
+    public EmployeeController(EmployeeService employeeService) {
         super();
-        this.studentService = studentService;
+        this.employeeService = employeeService;
     }
 
     // handler method to handle list employee and return mode and view
     @GetMapping("/employee")
     public String listStudents(Model model) {
-        model.addAttribute("employee", studentService.getAllStudents());
+        model.addAttribute("employee", employeeService.getAllEmployee());
         return "employee";
     }
 
@@ -38,13 +38,13 @@ public class EmployeeController {
 
     @PostMapping("/employee")
     public String saveStudent(@ModelAttribute("employee") Employee employee) {
-        studentService.saveStudent(employee);
+        employeeService.saveEmployee(employee);
         return "redirect:/employee";
     }
 
     @GetMapping("/employee/edit/{id}")
     public String editStudentForm(@PathVariable Long id, Model model) {
-        model.addAttribute("student", studentService.getStudentById(id));
+        model.addAttribute("student", employeeService.getEmployeeById(id));
         return "edit_employee";
     }
 
@@ -54,14 +54,14 @@ public class EmployeeController {
                                 Model model) {
 
         // get employee from database by id
-        Employee existingEmployee = studentService.getStudentById(id);
+        Employee existingEmployee = employeeService.getEmployeeById(id);
         existingEmployee.setId(id);
         existingEmployee.setFirstName(employee.getFirstName());
         existingEmployee.setLastName(employee.getLastName());
         existingEmployee.setEmail(employee.getEmail());
 
         // save updated employee object
-        studentService.updateStudent(existingEmployee);
+        employeeService.updateEmployee(existingEmployee);
         return "redirect:/employee";
     }
 
@@ -69,7 +69,7 @@ public class EmployeeController {
 
     @GetMapping("/employee/{id}")
     public String deleteStudent(@PathVariable Long id) {
-        studentService.deleteStudentById(id);
+        employeeService.deleteEmployeeById(id);
         return "redirect:/employee";
     }
 

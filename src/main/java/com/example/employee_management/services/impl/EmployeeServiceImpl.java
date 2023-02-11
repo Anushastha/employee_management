@@ -2,44 +2,44 @@ package com.example.employee_management.services.impl;
 
 import com.example.employee_management.Entity.Employee;
 import com.example.employee_management.repo.EmployeeRepository;
-import com.example.employee_management.services.StudentService;
+import com.example.employee_management.services.EmployeeService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class StudentServiceImpl implements StudentService {
+public class EmployeeServiceImpl implements EmployeeService {
 
     private EmployeeRepository employeeRepository;
 
-    public StudentServiceImpl(EmployeeRepository employeeRepository) {
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
         super();
         this.employeeRepository = employeeRepository;
     }
 
     @Override
-    public List<Employee> getAllStudents() {
+    public List<Employee> getAllEmployee() {
         return employeeRepository.findAll();
     }
 
 
     @Override
-    public Employee saveStudent(Employee employee) {
+    public Employee saveEmployee(Employee employee) {
         return employeeRepository.save(employee);
     }
 
     @Override
-    public Employee getStudentById(Long id) {
+    public Employee getEmployeeById(Long id) {
         return employeeRepository.findById(id).get();
     }
 
     @Override
-    public Employee updateStudent(Employee employee) {
+    public Employee updateEmployee(Employee employee) {
         return employeeRepository.save(employee);
     }
 
     @Override
-    public void deleteStudentById(Long id) {
+    public void deleteEmployeeById(Long id) {
         employeeRepository.deleteById(id);
     }
 
