@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="../../repo/resources/static/css/login.css">
+    <script src="../../repo/resources/static/js/login.js"></script>
+    <link th:href="@{~/css/login.css}" rel="stylesheet">
+    <script th:src="@{~/js/script.js}"></script>
+
+
+</head>
+<body>
+
+<main>
+    <div class="box">
+        <div class="inner-box">
+            <div class="forms-wrap">
+                <form th:method="post"
+                      th:action="@{/user/create}" name="signup" class="form"
+                      th:object="${user}"  enctype="multipart/form-data">
+
+                    <form action="index.html" autocomplete="off" class="sign-up-form">
+                        <div class="logo">
+                            <!--                            <img src="./img/logo2.png" alt="Guess" />-->
+                            <h4>Coffee</h4>
+                        </div>
+
+                        <div class="heading">
+                            <h2>Get Started</h2>
+                            <h6>Already have an account?</h6>
+                            <a th:href="@{/login}" class= signup>Sign in</a>
+
+
+                        </div>
+<!--form box -->
+                        <div class="actual-form">
+                            <div class="input-wrap">
+                                <input
+                                        type="text"
+                                        minlength="4"
+                                        class="input-field"
+                                        autocomplete="off"
+                                        required
+                                        th:field="*{fullname}"
+
+                                />
+                                <label>Name</label>
+                            </div>
+
+                            <div class="input-wrap">
+                                <input
+                                        type="email"
+                                        class="input-field"
+                                        autocomplete="off"
+                                        required
+                                        th:field="*{email}"
+
+                                />
+                                <label>Email</label>
+                            </div>
+
+                            <div class="input-wrap">
+                                <input
+                                        type="password"
+                                        minlength="4"
+                                        class="input-field"
+                                        autocomplete="off"
+                                        required
+                                        th:field="*{password}"
+
+                                />
+                                <label>Password</label>
+                            </div>
+
+                            <input type="submit" value="Sign Up" class="sign-btn" />
+
+                            <p class="text">
+                                By signing up, I agree to the
+                                <a href="#">Terms of Services</a> and
+                                <a href="#">Privacy Policy</a>
+                            </p>
+                        </div>
+                    </form>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+</main>
+
+
+<script src="/login.js"></script>
+</body>
+</html> -->tml>

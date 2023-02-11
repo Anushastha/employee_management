@@ -1,0 +1,170 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- =====BOX ICONS===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- ===== CSS ===== -->
+<!--    <link rel="stylesheet" href="assets/css/styles.css">-->
+    <link th:href="@{~/css/styles.css}" rel="stylesheet">
+    <link th:href="@{~/scss/styles.scss}" rel="stylesheet">
+
+
+    <script th:src="@{~/js/main.js}"></script>
+    <title>Employee Management</title>
+</head>
+<body>
+<!--===== HEADER =====-->
+<header class="l-header">
+    <nav class="nav bd-grid">
+        <div>
+            <a href="#" class="nav__logo">Coffee</a>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+            <i class='bx bx-menu'></i>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+            <div class="nav__close" id="nav-close">
+                <i class='bx bx-x'></i>
+            </div>
+
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+
+
+                <li class="nav__item"><a th:href="@{/login}" class="nav__link">login</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main class="l-main">
+    <!--===== HOME =====-->
+    <section class="home" id="home">
+        <div class="home__container bd-grid">
+            <div class="home__img">
+                <img th:src="@{~/img/img1.png}" alt="" data-speed="-2" class="move">
+                <img th:src="@{~/img/img2.png}" alt="" data-speed="2" class="move">
+                <img th:src="@{~/img/img3.png}" alt="" data-speed="2" class="move">
+                <img th:src="@{~/img/img4.png}" alt="" data-speed="-2" class="move">
+                <img th:src="@{~/img/img5.png}" alt="" data-speed="-2" class="move">
+                <img th:src="@{~/img/img6.png}" alt="" data-speed="2" class="move">
+            </div>
+
+            <div class="home__data">
+                <h1 class="home__title">Coffee<br> Drink 3D</h1>
+                <p class="home__description">Let's help discover the best coffee drink <br> of the week.</p>
+                <a href="#" class="home__button">Get Started</a>
+            </div>
+        </div>
+
+
+<!--    <div class="gallery">-->
+<!--        <div class="galleryItem">-->
+<!--            <h1 class="galleryTitle">Since 1981</h1>-->
+<!--            <img src="https://cdn.shopify.com/s/files/1/0274/5620/8968/products/GUESSWomen_sStoneZedSmallGirlfriendSatchelBagVB868322ModelView.jpg?v=1670476026"-->
+<!--                 alt="" class="galleryImg">-->
+<!--        </div>-->
+<!--        <div class="galleryItem">-->
+<!--            <img src="https://cdn.shopify.com/s/files/1/0274/5620/8968/products/GUESSWomensPinkLittleBayShoulderBagWG811618LifestyleView_3c795cf2-ebe8-486b-8c64-04f2e43a1c03.jpg?v=1666667167"-->
+<!--                 alt="" class="galleryImg">-->
+<!--            <h1 class="galleryTitle">Shop the Must-Haves</h1>-->
+<!--        </div>-->
+<!--        <div class="galleryItem">-->
+<!--            <h1 class="galleryTitle">Find your style</h1>-->
+<!--            <img src="https://cdn.shopify.com/s/files/1/0274/5620/8968/products/GUESSWomen_sBlackLaFemmeShoulderBagPD868919ModelView.jpg?v=1674004532"-->
+<!--                 alt="" class="galleryImg">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="newSeason">-->
+<!--        <div class="nsItem">-->
+<!--            <img src="https://cdn.shopify.com/s/files/1/0274/5620/8968/files/BAGS-FALL-MEGA-MENU_540x.jpg?v=1673573160"-->
+<!--                 alt="" class="nsImg">-->
+<!--        </div>-->
+<!--        <div class="nsItem">-->
+<!--            <h3 class="nsTitleSm">WINTER NEW ARRIVALS</h3>-->
+<!--            <h1 class="nsTitle">New Season</h1>-->
+<!--            <h1 class="nsTitle">New Collection</h1>-->
+<!--            <a href="#nav">-->
+<!--                <button class="nsButton">CHOOSE YOUR STYLE</button>-->
+<!--            </a>-->
+<!--        </div>-->
+<!--        <div class="nsItem">-->
+<!--            <img src="https://cdn.shopify.com/s/files/1/0274/5620/8968/files/Untitled-1_540x.jpg?v=1673502516"-->
+<!--                 alt="" class="nsImg">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <footer>-->
+<!--        <div class="footerLeft">-->
+<!--            <div class="footerMenu">-->
+<!--                <h1 class="fMenuTitle">About Us</h1>-->
+<!--                <ul class="fList">-->
+<!--                    <li class="fListItem">Company</li>-->
+<!--                    <li class="fListItem">Contact</li>-->
+<!--                    <li class="fListItem">Careers</li>-->
+<!--                    <li class="fListItem">Affiliates</li>-->
+<!--                    <li class="fListItem">Stores</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--            <div class="footerMenu">-->
+<!--                <h1 class="fMenuTitle">Useful Links</h1>-->
+<!--                <ul class="fList">-->
+<!--                    <li class="fListItem">Support</li>-->
+<!--                    <li class="fListItem">Refund</li>-->
+<!--                    <li class="fListItem">FAQ</li>-->
+<!--                    <li class="fListItem">Feedback</li>-->
+<!--                    <li class="fListItem">Stories</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--            <div class="footerMenu">-->
+<!--                <h1 class="fMenuTitle">Products</h1>-->
+<!--                <ul class="fList">-->
+<!--                    <li class="fListItem">Air Force</li>-->
+<!--                    <li class="fListItem">Air Jordan</li>-->
+<!--                    <li class="fListItem">Blazer</li>-->
+<!--                    <li class="fListItem">Crater</li>-->
+<!--                    <li class="fListItem">Hippie</li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="footerRight">-->
+<!--            <div class="footerRightMenu">-->
+<!--                <h1 class="fMenuTitle">Subscribe to our newsletter</h1>-->
+<!--                <div class="fMail">-->
+<!--                    <input type="text" placeholder="your@email.com" class="fInput">-->
+<!--                    <button class="fButton">Join!</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="footerRightMenu">-->
+<!--                <h1 class="fMenuTitle">Follow Us</h1>-->
+<!--                <div class="fIcons">-->
+<!--                    <img src="./img/facebook.png" alt="" class="fIcon">-->
+<!--                    <img src="./img/twitter.png" alt="" class="fIcon">-->
+<!--                    <img src="./img/instagram.png" alt="" class="fIcon">-->
+<!--                    <img src="./img/whatsapp.png" alt="" class="fIcon">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="footerRightMenu">-->
+<!--                <span class="copyright">@Prasna Aryal. All rights reserved. 2022.</span>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--    </footer>-->
+    </section>
+</main>
+
+<!--===== GSAP =====-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
+<!--===== MAIN JS =====-->
+<script src="assets/js/main.js"></script>
+</body>
+</html>
