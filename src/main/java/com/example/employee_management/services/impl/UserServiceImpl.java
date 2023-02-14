@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
     public List<User> fetchAll() {
         return userRepo.findAll();
     }
-    public User fetchById(Integer id) {
+    public User getUserById(Integer id) {
         return userRepo.findById(id).orElseThrow(()->new RuntimeException("Not Found"));
     }
     public void deleteById(Integer id){

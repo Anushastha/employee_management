@@ -8,7 +8,7 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
 
-    <link th:href="@{~/css/employee.css}" rel="stylesheet">
+    <link th:href="@{~/css/adminAcc.css}" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-md" style="background-color: #4ba493;">
@@ -33,58 +33,36 @@
         <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
             <h1 class = "text-center" style="padding-top: 50px; font-size: 2.1rem;
     font-weight: 600;
-    color: #151111;"> Update Customer </h1>
+    color: #151111;">Your Profile</h1>
             <div class = "card-body">
-                <form th:action="@{/employee/{id} (id=${employee.id})}" th:object = "${employee}" method="POST">
+                <form th:action="@{/view/{id} (id=${user.id})}" th:object = "${user}" method="POST">
                     <div class ="form-group">
                         <label>Enter the first name</label>
                         <input
                                 type = "text"
-                                name = "firstName"
-                                th:field = "*{firstName}"
+                                name = "fullname"
+                                th:field = "*{fullName}"
                                 class = "form-control"
-                                placeholder="First Name"
+                                placeholder="Full Name"
                         />
                     </div>
 
                     <div class ="form-group">
                         <label>Enter the last name</label>
                         <input
-                                type = "text"
-                                name = "lastName"
-                                th:field = "*{lastName}"
-                                class = "form-control"
-                                placeholder="Last Name"
-                        />
-                    </div>
-
-                    <div class ="form-group">
-                        <label>Enter the email</label>
-                        <input
-                                type = "text"
+                                type = "email"
                                 name = "email"
                                 th:field = "*{email}"
                                 class = "form-control"
                                 placeholder="Email"
                         />
                     </div>
-
-                    <div class ="form-group">
-                        <label>Enter the phone number</label>
-                        <input
-                                type = "text"
-                                name = "phone_number"
-                                th:field = "*{phone_number}"
-                                class = "form-control"
-                                placeholder="Phone Number"
-                        />
-                    </div>
-
-                    <div class = "text-center">
-                        <button type="submit" class = "btn btn-primary">
-                            Update
-                        </button>
-                    </div>
+                    
+<!--                    <div class = "text-center">-->
+<!--                        <button type="submit" class = "btn btn-primary">-->
+<!--                            Update-->
+<!--                        </button>-->
+<!--                    </div>-->
                 </form>
 
             </div>

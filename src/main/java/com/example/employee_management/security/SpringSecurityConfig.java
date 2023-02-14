@@ -35,7 +35,7 @@ public class SpringSecurityConfig {
     protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/login")
+                .requestMatchers("/**","/user/index")
                 .permitAll()
                 .requestMatchers("/css/**","/img/**").permitAll()
                 .anyRequest()
@@ -49,16 +49,15 @@ public class SpringSecurityConfig {
                 .and()
                 .httpBasic();
 
-
         return httpSecurity.build();
 
 
 
     };
 
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer(){
-        return (web) ->web.ignoring().anyRequest();
-    }
+//    @Bean
+//    public WebSecurityCustomizer webSecurityCustomizer(){
+//        return (web) ->web.ignoring().anyRequest();
+//    }
 }
 

@@ -1,4 +1,5 @@
 package com.example.employee_management.controller;
+import com.example.employee_management.Entity.Employee;
 import com.example.employee_management.Entity.User;
 import com.example.employee_management.pojo.UserPojo;
 
@@ -15,11 +16,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,33 +73,30 @@ public class UserController {
         return "redirect:/login";
     }
 
-    @GetMapping("/edit/{id}")
+    @PostMapping("/edit/{id}")
     public String editUser(@PathVariable("id") Integer id, Model model) {
-        User user = userService.fetchById(id);
+        User user = userService.getUserById(id);
         model.addAttribute("user", new UserPojo(user));
         return "register";
     }
 
-    @GetMapping("/list")
-    public String getUSerList(Model model) {
+
+//    @GetMapping("/view")
+//    public String getAdminInfo(Model model) {
 //        List<User> users = userService.fetchAll();
-
-
-//        model.addAttribute("userList", users.stream().map(user ->
+//        model.addAttribute("user", users.stream().map(user ->
 //                User.builder()
 //                        .id(user.getId())
-//
 //                        .email(user.getEmail())
 //                        .fullName(user.getFullName())
-//
 //                        .build()
 //
 //        ));
-
-//        model.addAttribute("UPLOAD_DIRECTORY", "/" + UPLOAD_DIRECTORY);
-
-        return "user_list";
-    }
+//
+////        model.addAttribute("UPLOAD_DIRECTORY", "/" + UPLOAD_DIRECTORY);
+//
+//        return "admin_account";
+//    }
 
     @GetMapping("/{id}")
     public String deleteUser(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {

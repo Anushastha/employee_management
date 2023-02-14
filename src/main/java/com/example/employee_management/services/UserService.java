@@ -14,7 +14,7 @@ public interface UserService {
 //    User findByUsername(String username);
 //    User findByEmail(String email);
     User findById(long id);
-    User fetchById(Integer id);
+    User getUserById(Integer id);
     List<User> fetchAll();
     void deleteById(Integer id);
 }

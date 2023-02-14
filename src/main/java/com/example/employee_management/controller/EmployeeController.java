@@ -21,13 +21,13 @@ public class EmployeeController {
 
     // handler method to handle list employee and return mode and view
     @GetMapping("/employee")
-    public String listStudents(Model model) {
+    public String listEmployee(Model model) {
         model.addAttribute("employee", employeeService.getAllEmployee());
         return "employee";
     }
 
     @GetMapping("/employee/new")
-    public String createStudentForm(Model model) {
+    public String createEmployeeForm(Model model) {
 
         // create employee object to hold employee form data
         Employee employee = new Employee();
@@ -37,19 +37,21 @@ public class EmployeeController {
     }
 
     @PostMapping("/employee")
-    public String saveStudent(@ModelAttribute("employee") Employee employee) {
+    public String saveEmployee(@ModelAttribute("employee") Employee employee) {
         employeeService.saveEmployee(employee);
         return "redirect:/employee";
     }
 
+    //update ko button ma haleko
     @GetMapping("/employee/edit/{id}")
-    public String editStudentForm(@PathVariable Long id, Model model) {
-        model.addAttribute("student", employeeService.getEmployeeById(id));
+    public String editEmployeeForm(@PathVariable Long id, Model model) {
+        model.addAttribute("employee", employeeService.getEmployeeById(id));
         return "edit_employee";
     }
 
+    //update page ko form action ho
     @PostMapping("/employee/{id}")
-    public String updateStudent(@PathVariable Long id,
+    public String updateEmployee(@PathVariable Long id,
                                 @ModelAttribute("employee") Employee employee,
                                 Model model) {
 
@@ -59,6 +61,7 @@ public class EmployeeController {
         existingEmployee.setFirstName(employee.getFirstName());
         existingEmployee.setLastName(employee.getLastName());
         existingEmployee.setEmail(employee.getEmail());
+        existingEmployee.setPhone_number(employee.getPhone_number());
 
         // save updated employee object
         employeeService.updateEmployee(existingEmployee);
@@ -68,7 +71,7 @@ public class EmployeeController {
     // handler method to handle delete employee request
 
     @GetMapping("/employee/{id}")
-    public String deleteStudent(@PathVariable Long id) {
+    public String deleteEmployee(@PathVariable Long id) {
         employeeService.deleteEmployeeById(id);
         return "redirect:/employee";
     }
