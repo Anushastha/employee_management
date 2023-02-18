@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="ISO-8859-1">
     <title>Add new employee</title>
@@ -9,6 +10,7 @@
           crossorigin="anonymous">
 
     <link th:href="@{~/css/employee.css}" rel="stylesheet">
+
 </head>
 <body>
 <nav class="navbar navbar-expand-md" style="background-color: #4ba493;">
@@ -22,78 +24,84 @@
             <li class="nav-item">
                 <a class="nav-link"style="color: white;" th:href="@{/employee}">Back</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link"style="color: white;" th:href="@{/employee}">Account</a>
-            </li>
         </ul>
     </div>
 </nav>
 <br>
 <br>
 <div class = "container">
-    <div class = "row">
 <!--        box form with heading css-->
-        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <h2 class = "text-center" style="padding-top: 50px; font-size: 2.1rem;
-    font-weight: 600;
-    color: #151111;" >You want to add a new employee?</h2>
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card"  style="padding: 30px">
+            <h3 class = "top"style="text-align: center" ><b>You want to add a new employee?</b></h3>
             <h4 style="color: #bababa;text-align: center;">Fill up the form below</h4>
-            <div class = "card-body">
                 <form th:action="@{/employee}" th:object = "${employee}" method="POST">
-                    <div class ="form-group">
-                        <label>Enter the first name</label>
-                        <input
-                                type = "text"
-                                name = "firstName"
-                                th:field = "*{firstName}"
-                                class = "form-control"
-                                placeholder="First Name"
-                        />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Enter the first name</label>
+                            <input type="text"
+                                   name="firstName"
+                                   th:field="*{firstName}"
+                                   class="form-control"
+                                   placeholder="First Name" required/>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Enter the last name</label>
+                            <input type="text"
+                                   name="lastName"
+                                   th:field="*{lastName}"
+                                   class="form-control"
+                                   placeholder="Last Name" required/>
+                        </div>
                     </div>
-
-                    <div class ="form-group">
-                        <label>Enter the last name</label>
-                        <input
-                                type = "text"
-                                name = "lastName"
-                                th:field = "*{lastName}"
-                                class = "form-control"
-                                placeholder="Last Name"
-                        />
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Enter the email</label>
+                            <input type="email"
+                                   name="email"
+                                   th:field="*{email}"
+                                   class="form-control"
+                                   placeholder="Email" required/>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Enter the phone number</label>
+                            <input type="text"
+                                   name="phone_number"
+                                   th:field="*{phone_number}"
+                                   class="form-control"
+                                   placeholder="Phone Number" required/>
+                        </div>
                     </div>
-
-                    <div class ="form-group">
-                        <label>Enter the email</label>
-                        <input
-                                type = "email"
-                                name = "email"
-                                th:field = "*{email}"
-                                class = "form-control"
-                                placeholder="Email"
-                        />
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Enter the department</label>
+                            <input type="text"
+                                   name="department"
+                                   th:field="*{department}"
+                                   class="form-control"
+                                   placeholder="Department"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Enter the salary</label>
+                            <input type="text"
+                                   name="salary"
+                                   th:field="*{salary}"
+                                   class="form-control"
+                                   placeholder="Salary" required/>
+                        </div>
                     </div>
-
-                    <div class ="form-group">
-                        <label>Enter the phone number</label>
-                        <input
-                                type = "text"
-                                name = "phone_number"
-                                th:field = "*{phone_number}"
-                                class = "form-control"
-                                placeholder="Phone Number"
-                        />
-                    </div>
-
+                    <br>
                     <div class = "text-center">
-                        <button type="submit"  class = "btn btn-primary">
+                        <button type="submit" class = "btn btn-primary">
                             Submit
                         </button>
                     </div>
-                </form>
 
+                </form>
             </div>
         </div>
-    </div>
 </div>
+
 </body>
 </html>

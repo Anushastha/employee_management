@@ -3,7 +3,9 @@ import com.example.employee_management.Entity.Employee;
 import com.example.employee_management.Entity.User;
 import com.example.employee_management.pojo.UserPojo;
 
+import com.example.employee_management.repo.UserRepo;
 import com.example.employee_management.services.UserService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -20,18 +22,17 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserController {
 
     private final UserService userService;
+    private final UserRepo userRepo;
 //    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/canteen_mgmt";
 
-    @GetMapping
-    public String getPage() {
-        return "Hello_page";
-    }
 
     @GetMapping("/index")
     public String getMainPage() {
@@ -43,7 +44,6 @@ public class UserController {
         return "user/create";
     }
 
-    //???
     @GetMapping("/login")
     public String getLogin(Model model){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -72,6 +72,20 @@ public class UserController {
         redirectAttributes.addFlashAttribute("successMsg", "User registered successfully");
         return "redirect:/login";
     }
+    @GetMapping("/userList")
+    public String getUser(Model model) {
+        List<User> users = userService.fetchAll();
+        model.addAttribute("userList", users.stream().map(user ->
+                        User.builder()
+                                .id(user.getId())
+//                        .imageBase64(getImageBase64(user.getImage()))
+                                .fullName(user.getFullName())
+                                .email(user.getEmail())
+                                .build()
+        ));
+//        model.addAttribute("UPLOAD_DIRECTORY", "/" + UPLOAD_DIRECTORY);
+        return "user/user_list";
+    }
 
     @PostMapping("/edit/{id}")
     public String editUser(@PathVariable("id") Integer id, Model model) {
@@ -80,29 +94,11 @@ public class UserController {
         return "register";
     }
 
-
-//    @GetMapping("/view")
-//    public String getAdminInfo(Model model) {
-//        List<User> users = userService.fetchAll();
-//        model.addAttribute("user", users.stream().map(user ->
-//                User.builder()
-//                        .id(user.getId())
-//                        .email(user.getEmail())
-//                        .fullName(user.getFullName())
-//                        .build()
-//
-//        ));
-//
-////        model.addAttribute("UPLOAD_DIRECTORY", "/" + UPLOAD_DIRECTORY);
-//
-//        return "admin_account";
-//    }
-
     @GetMapping("/{id}")
     public String deleteUser(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
         userService.deleteById(id);
         redirectAttributes.addFlashAttribute("deleteMsg", "Row delete successfully");
-        return "redirect:/user/list";
+        return "redirect:/user/admin_account";
     }
 
     public Map<String, String> validateRequest(BindingResult bindingResult) {
@@ -119,7 +115,7 @@ public class UserController {
 
     }
 
-    //    private String convertImageToBase64(String filename) {
+//        private String convertImageToBase64(String filename) {
 //        String filePath = System.getProperty("user.dir") + "/canteen_mgmt/" + filename;
 //    }
 //    public String getImageBase64(String fileName) {

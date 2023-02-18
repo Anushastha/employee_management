@@ -29,8 +29,6 @@ public class SpringSecurityConfig {
         return authenticationProvider;
     }
 
-
-
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
