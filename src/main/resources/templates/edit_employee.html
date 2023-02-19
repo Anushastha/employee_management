@@ -24,6 +24,11 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/employee}" style="color: white">Back</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{~/logout}"
+                   onclick="if (!(confirm('Are you sure you want to Logout?'))) return false"
+                   style="color: white">Log Out</a>
+            </li>
         </ul>
     </div>
 </nav>

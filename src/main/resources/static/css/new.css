@@ -58,7 +58,7 @@ hr.line{
     border: 1px solid lightgray;
 }
 .btn{
-    background-color: #358273;
+    background-color: #4ba493;
     color: white;
     height: 40px;
     width: 120px;
@@ -66,5 +66,5 @@ hr.line{
     border-radius: 12px;
 }
 .btn:hover{
-    background-color: #4ba493;
+    background-color: #52b09e;
 }

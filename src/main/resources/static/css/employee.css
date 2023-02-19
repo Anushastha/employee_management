@@ -26,8 +26,11 @@ body{
     position: relative;
     width: 100%;
     max-width: 800px;
-    height: 1000px;
+    height: fit-content;
     background-color: #fff;
     box-shadow: 0 60px 40px -30px rgb(0 0 0 / 27%);
 }
-
+.nav-item:hover{
+    background-color: #52b09e;
+    border-radius: 12px;
+}
