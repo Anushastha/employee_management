@@ -23,11 +23,11 @@ public class TaskController {
         return "task";
     }
 
-    @GetMapping("/task")
-    public String listTask(Model model) {
-        model.addAttribute("task", taskService.getAllTask());
-        return "task";
-    }
+//    @GetMapping("/tasks")
+//    public String listTask(Model model) {
+//        model.addAttribute("task", taskService.getAllTask());
+//        return "task";
+//    }
     @GetMapping("/tasklist")
     public String getTask(Model model) {
         List<Task> tasks = taskService.getAllTask();

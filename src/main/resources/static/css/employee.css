@@ -30,7 +30,4 @@ body{
     background-color: #fff;
     box-shadow: 0 60px 40px -30px rgb(0 0 0 / 27%);
 }
-.nav-link:hover{
-    background-color: #358273;
-    border-radius: 12px;
-}
+
