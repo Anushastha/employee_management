@@ -25,7 +25,7 @@
 <br>
 <br>
 <div class="container">
-    <form th:action="@{/saveEmployee}" th:object = "${employee}" method="post">
+    <form>
         <h1 class="text-center">Profile</h1>
         <div class="row">
             <div class="col-lg-4 mt-4">
@@ -33,32 +33,32 @@
                     <div class="card-body">
                         <h4 class="card-title mt-3">First Name</h4>
                         <p class="card-text mt-3"
-                           th:value="${user.firstName}" readonly class="form-control">
+                           th:text="${employee.firstName}" readonly >
 
                         </p>
                         <h4 class="card-title mt-3">Last Name</h4>
                         <p class="card-text mt-3"
-                           th:value="${user.lastName}" readonly class="form-control">
+                           th:text="${employee.lastName}" readonly >
 
                         </p>
                         <h4 class="card-title mt-3">Email</h4>
                         <p class="card-text mt-3"
-                           th:value="${user.email}" readonly class="form-control">
+                           th:text="${employee.email}" readonly >
 
                         </p>
                         <h4 class="card-title mt-3">Phone Number</h4>
                         <p class="card-text mt-3"
-                           th:value="${user.phone_number}" readonly class="form-control">
+                           th:text="${employee.phone_number}" readonly >
 
                         </p>
                         <h4 class="card-title mt-3">Department</h4>
                         <p class="card-text mt-3"
-                           th:value="${user.department}" readonly class="form-control">
+                           th:text="${employee.department}" readonly >
 
                         </p>
                         <h4 class="card-title mt-3">Salary</h4>
                         <p class="card-text mt-3"
-                           th:value="${user.salary}" readonly class="form-control">
+                           th:text="${employee.salary}" readonly >
 
                         </p>
                     </div>

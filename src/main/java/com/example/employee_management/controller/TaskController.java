@@ -20,6 +20,7 @@ public class TaskController {
 
     @GetMapping("/task")
     public String getTaskPage(Model model) {
+        model.addAttribute("taskList", taskService.getAllTask());
         return "task";
     }
 

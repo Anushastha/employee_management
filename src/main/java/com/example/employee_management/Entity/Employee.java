@@ -26,7 +26,7 @@ public class Employee {
     private String email;
 
     @Column(name = "phone_number")
-    private Integer phone_number;
+    private String phone_number;
 
     @Column(name = "department")
     private String department;
@@ -34,7 +34,7 @@ public class Employee {
     @Column(name = "salary")
     public Integer salary;
 
-    public Employee(String firstName, String lastName, String email, Integer phone_number, String department, Integer salary) {
+    public Employee(String firstName, String lastName, String email, String phone_number, String department, Integer salary) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;

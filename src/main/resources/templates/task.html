@@ -45,7 +45,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each = "task: ${task}">
+        <tr th:each = "task: ${taskList}">
             <td th:text = "${task.employee_name}"></td>
             <td th:text = "${task.task_assigned}"></td>
             <td th:text = "${task.assigned_date}"></td>
