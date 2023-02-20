@@ -1,5 +1,5 @@
 body{
-    background-color: #f6f6ea;
+    background-color: whitesmoke;
     font-family: "Poppins", sans-serif;
 
 }
@@ -28,8 +28,8 @@ body{
     max-width: 800px;
     height: fit-content;
     background-color: #fff;
-    box-shadow: 0 60px 40px -30px rgb(0 0 0 / 27%);
 }
+
 .nav-item:hover{
     background-color: #52b09e;
     border-radius: 12px;

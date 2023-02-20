@@ -12,8 +12,8 @@
     <link th:href="@{~/css/employee.css}" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-md" style="background-color: #4ba493;">
-    <!-- Brand -->
+<nav class="navbar navbar-expand-md"
+     style="background-color: #4ba493;">   <!-- Brand -->
     <a class="navbar-brand" href="#">
         <img src="/img/logosmall.png" height="60px" width="60px" alt="">
     </a>
@@ -37,9 +37,9 @@
 <div class = "container">
     <div class = "row">
         <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <h1 class = "text-center" style="padding-top: 50px; font-size: 2.1rem;
-    font-weight: 600;
-    color: #151111;"> Update Customer </h1>
+            <h1 class = "text-center" style="padding-top: 20px; font-size: 2.1rem;
+            font-weight: 600;
+            color: #151111;"> Update Customer </h1>
             <div class = "card-body">
                 <form th:action="@{/employee/{id} (id=${employee.id})}" th:object = "${employee}" method="POST">
 
@@ -111,5 +111,6 @@
         </div>
     </div>
 </div>
+<br>
 </body>
 </html>
