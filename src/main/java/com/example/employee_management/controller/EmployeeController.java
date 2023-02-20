@@ -38,21 +38,21 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/view/{id}")
-    public String viewProfile(@PathVariable Long id, Model model) {
+    public String viewProfile(@PathVariable Integer id, Model model) {
         model.addAttribute("employee", employeeService.getEmployeeById(id));
         return "employee_profile";
     }
 
     //update ko button ma haleko
     @GetMapping("/employee/edit/{id}")
-    public String editEmployeeForm(@PathVariable Long id, Model model) {
+    public String editEmployeeForm(@PathVariable Integer id, Model model) {
         model.addAttribute("employee", employeeService.getEmployeeById(id));
         return "edit_employee";
     }
 
     //update page ko form action ho
     @PostMapping("/employee/{id}")
-    public String updateEmployee(@PathVariable Long id,
+    public String updateEmployee(@PathVariable Integer id,
                                 @ModelAttribute("employee") Employee employee,
                                 Model model) {
 
@@ -91,7 +91,7 @@ public class EmployeeController {
 
     // handler method to handle delete employee request
     @GetMapping("/employee/{id}")
-    public String deleteEmployee(@PathVariable Long id) {
+    public String deleteEmployee(@PathVariable Integer id) {
         employeeService.deleteEmployeeById(id);
         return "redirect:/employee";
     }

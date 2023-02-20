@@ -10,10 +10,10 @@ public interface TaskService {
 
     Task saveTask(Task task);
 
-    Task getTaskById(Long id);
+    Task getTaskById(Integer id);
 
     Task updateTask(Task task);
 
-    void deleteTaskById(Long id);
+    void deleteTaskById(Integer id);
 
 }

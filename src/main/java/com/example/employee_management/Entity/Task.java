@@ -17,7 +17,7 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     @Column(name = "employee_name")
     public String employee_name;
 
@@ -25,9 +25,9 @@ public class Task {
     public String task_assigned;
 
     @Column(name = "assigned_date")
-    public Date assigned_date;
+    public String assigned_date;
 
-    public Task(String employee_name,String task_assigned, Date assigned_date) {
+    public Task(String employee_name,String task_assigned, String assigned_date) {
         super();
         this.employee_name = employee_name;
         this.task_assigned = task_assigned;

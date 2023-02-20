@@ -27,7 +27,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee getEmployeeById(Long id) {
+    public Employee getEmployeeById(Integer id) {
         return employeeRepository.findById(id).get();
     }
 
@@ -37,7 +37,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void deleteEmployeeById(Long id) {
+    public void deleteEmployeeById(Integer id) {
         employeeRepository.deleteById(id);
     }
 
