@@ -66,6 +66,7 @@ public class TaskController {
         // get task from database by id
         Task existingTask = taskService.getTaskById(id);
         existingTask.setId(id);
+        existingTask.setEmployee_name(task.getEmployee_name());
         existingTask.setTask_assigned(task.getTask_assigned());
         existingTask.setAssigned_date(task.getAssigned_date());
 

@@ -13,13 +13,16 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md"
+<nav class="navbar sticky-top navbar-expand-md"
      style="background-color: #4ba493;">    <!-- Brand -->
     <a class="navbar-brand">
         <img th:src="@{~/img/logosmall.png}" height="60px" width="60px" alt="logo">
     </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" th:href="@{~/employee}" style="color: white">Back</a>
