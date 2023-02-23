@@ -69,7 +69,8 @@
                    class = "btn btn-success">Update</a>
 
                 <a th:href = "@{/task/{id}(id=${task.id})}"
-                   class = "btn btn-danger">Delete</a>
+                   class = "btn btn-danger" onclick="if (!(confirm('Are you sure you want to delete the task?'))) return false"
+                   style="color: white">Delete</a>
             </td>
         </tr>
         </tbody>
